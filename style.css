@@ -1,5 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
+:root {
+  --clr-body-background: #f9faff;
+  --clr-card-background: #fff;
+  --clr-date: #888;
+  --clr-likeButton: rgb(95, 95, 253);
+  --clr-lightbox: rgba(91, 94, 115, 0.8);
+  --clr-lightbox-border: rgb(245, 245, 245);
+  --clr-loadMore-button: rgb(64, 192, 224);
+  --clr-slider: #ffde82;
+  --clr-slider-after: #c9c9c9;
+  --clr-text: rgb(122, 122, 122);
+
+  --dark-body-background: #051225;
+  --dark-card-background: #051225;
+  --dark-text-clr: #fff;
+  --dark-border-clr: rgb(142, 142, 142);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +25,7 @@
 }
 
 body {
-  background: #f9fafd;
+  background: var(--clr-background);
   font-family: Roboto, sans-serif;
   margin: 0;
   padding: 0;
@@ -33,7 +51,7 @@ body {
 }
 
 .card {
-  background-color: #fff;
+  background-color: var(--clr-card-background);
   box-shadow: 0 0 10px rgba(68, 68, 68, 0.2);
   border-radius: 10px;
   overflow: hidden;
@@ -80,13 +98,14 @@ body {
 .date {
   margin: 0;
   font-size: 0.8rem;
-  color: #888;
+  color: var(--clr-date);
 }
 
 .card-content p {
   font-size: 1rem;
   line-height: 1.5;
   margin-top: 1rem;
+  color: var(--clr-text);
 }
 .main-img {
   width: 100%;
@@ -105,19 +124,21 @@ body {
 .likes {
   display: flex;
   align-items: center;
+  color: var(--clr-text);
 }
 
 .likes i {
   margin-right: 5px;
-  color: rgb(123, 123, 255);
+  color: var(--clr-likeButton);
   cursor: pointer;
 }
 
 .source a {
   font-size: 14px;
-  color: #888;
+  color: var(--clr-date);
   text-decoration: none;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .source a:hover {
@@ -130,11 +151,8 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(91, 94, 115, 0.8);
+  background-color: var(--clr-lightbox);
   display: none;
-  /* max-width: 100%;
-  max-height: 100%;
-  object-fit: contain; */
 }
 
 #lightbox.active {
@@ -147,59 +165,13 @@ body {
 }
 
 #lightbox .lightbox-image {
-  border: 3px solid whitesmoke;
-  /* max-width: 90%;
-  max-height: 90%; */
+  border: 3px solid var(--clr-lightbox-border);
   object-fit: contain;
 }
-/* .centered-image {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  cursor: pointer;
-  transition: transform 0.3s;
-  max-width: 90%;
-  max-height: 90%;
-} */
-
-/* .original-image {
-  display: none;
-} */
-
-/* .disable-interactions {
-  pointer-events: none;
-} */
-
-/* .blur-background {
-  filter: blur(5px);
-} */
-
-/* .card-image {
-  height: 5rem;
-  width: 5rem;
-  border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
-  transition: transform 0.3s;
-} */
-/* .card-image-clicked {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  height: 20rem;
-  width: 20rem;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  filter: none;
-  cursor: auto;
-} */
 
 #loadMoreBtn {
   padding: 1.2rem 5rem;
-  background-color: rgb(64, 192, 224);
+  background-color: var(--clr-loadMore-button);
   border-radius: 50px 50px;
   border: none;
   margin: 0 auto;
@@ -231,7 +203,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ffbe0b;
+  background-color: var(--clr-slider);
   transition: 0.4s;
 }
 
@@ -243,7 +215,7 @@ body {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: var(--clr-body-background);
   -webkit-transition: 0.4s;
   transition: 0.4s;
   display: flex;
@@ -256,7 +228,7 @@ input:checked + .slider:before {
 }
 
 input:checked + .slider {
-  background-color: #000000;
+  background-color: var(--clr-slider-after);
 }
 
 input:checked + .slider:before {
@@ -270,6 +242,26 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+/* Dark Mode Styles */
+body.dark {
+  background: var(--dark-body-background);
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  align-content: center;
+  font-family: "Roboto", sans-serif;
+}
+.card-dark {
+  background-color: var(--dark-card-background);
+  box-shadow: 0 0 10px rgba(68, 68, 68, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 80%;
+  color: var(--dark-text-clr);
+  border: 1px solid var(--dark-border-clr);
+}
+/* Media query */
 
 @media screen and (max-width: 930px) {
   .layout-container {

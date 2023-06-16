@@ -58,7 +58,7 @@ function displayCards(data) {
       item.type,
       item.source_type,
       item.source_link,
-      item.date,
+      item.date.substring(0, 10),
       item.likes,
       item.name,
       item.profile_image
@@ -90,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const img = document.createElement("img");
       img.classList.add("lightbox-image");
       img.src = clickedElement.src;
-      //   img.src = `url('${clickedElement.src}')`;
       while (lightbox.firstChild) {
         lightbox.removeChild(lightbox.firstChild);
       }
@@ -101,6 +100,21 @@ document.addEventListener("DOMContentLoaded", function () {
   lightbox.addEventListener("click", function (event) {
     if (event.target === lightbox) {
       lightbox.classList.remove("active");
+    }
+  });
+  const themeToggle = document.getElementById("theme-toggle");
+
+  themeToggle.addEventListener("change", () => {
+    const cards = document.getElementsByClassName("card");
+    for (let i = 0; i < cards.length; i++) {
+      const card = cards[i];
+      if (themeToggle.checked) {
+        card.classList.add("card-dark");
+        document.body.classList.add("dark");
+      } else {
+        card.classList.remove("card-dark");
+        document.body.classList.remove("dark");
+      }
     }
   });
 });
