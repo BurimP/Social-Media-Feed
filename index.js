@@ -16,6 +16,13 @@ function displayCards(data) {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card");
 
+    const themeToggle = document.getElementById("theme-toggle");
+
+    // Apply dark mode class if the theme toggle is checked
+    if (themeToggle.checked) {
+      cardDiv.classList.add("card-dark");
+    }
+
     const cardContent = `
    
     <div class="card-details">
@@ -28,7 +35,7 @@ function displayCards(data) {
       </div>
       <div class="card-content">
       <img alt=${name} src=${image} class="main-img"/>
-        <p>${caption}</p>
+        <p class="card-text">${caption}</p>
       </div>
       <div class="card-footer">
         <div class="likes">
@@ -43,6 +50,7 @@ function displayCards(data) {
   `;
 
     cardDiv.innerHTML = cardContent;
+
     return cardDiv;
   };
 
@@ -74,8 +82,9 @@ function displayCards(data) {
     document.getElementById("loadMoreBtn").style.display = "none";
   }
 }
-
+// Effects take place after the DOM content is loaded
 document.addEventListener("DOMContentLoaded", function () {
+  //Lightbox enabler
   const lightbox = document.createElement("div");
   lightbox.id = "lightbox";
   document.body.appendChild(lightbox);
@@ -103,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   const themeToggle = document.getElementById("theme-toggle");
-
+  //Light/Dark mode switcher
   themeToggle.addEventListener("change", () => {
     const cards = document.getElementsByClassName("card");
     for (let i = 0; i < cards.length; i++) {
@@ -118,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
+//Fetching data from local JSON file via fetch API
 fetch("data.json")
   .then((response) => {
     return response.json();
