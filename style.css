@@ -1,0 +1,299 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f9fafd;
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  align-content: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.header-container {
+  text-align: center;
+  padding: 10px;
+}
+
+.layout-container {
+  margin: 0 auto;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  min-height: 80vh;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  justify-items: center;
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(68, 68, 68, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 80%;
+}
+
+.profile-image {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.card-details {
+  padding: 2em;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 0.5rem;
+}
+
+.card-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.card-header-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.date {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.card-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+.main-img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgb(193, 193, 193);
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+}
+
+.likes i {
+  margin-right: 5px;
+  color: rgb(123, 123, 255);
+  cursor: pointer;
+}
+
+.source a {
+  font-size: 14px;
+  color: #888;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.source a:hover {
+  color: #555;
+}
+
+#lightbox {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(91, 94, 115, 0.8);
+  display: none;
+}
+
+#lightbox.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#lightbox .lightbox-image {
+  border: 3px solid whitesmoke;
+}
+
+/* .centered-image {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  cursor: pointer;
+  transition: transform 0.3s;
+  max-width: 90%;
+  max-height: 90%;
+} */
+
+/* .original-image {
+  display: none;
+} */
+
+/* .disable-interactions {
+  pointer-events: none;
+} */
+
+/* .blur-background {
+  filter: blur(5px);
+} */
+
+/* .card-image {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+} */
+/* .card-image-clicked {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 20rem;
+  width: 20rem;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  filter: none;
+  cursor: auto;
+} */
+
+#loadMoreBtn {
+  padding: 1.2rem 5rem;
+  background-color: rgb(64, 192, 224);
+  border-radius: 50px 50px;
+  border: none;
+  margin: 0 auto;
+  color: white;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffbe0b;
+  transition: 0.4s;
+}
+
+.slider:before {
+  font-family: FontAwesome;
+  position: absolute;
+  content: "\f185";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input:checked + .slider:before {
+  content: "\f186";
+}
+
+input:checked + .slider {
+  background-color: #000000;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  .layout-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .layout-container {
+    width: 100%;
+  }
+  .card {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .profile-image {
+    height: 3rem;
+    width: 3rem;
+  }
+  h3 {
+    font-size: 1rem !important;
+  }
+  .date {
+    font-size: 0.7rem !important;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .card-details {
+    padding: 1em;
+  }
+}
